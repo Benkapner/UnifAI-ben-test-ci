@@ -2,6 +2,7 @@ name: Lint agent configurations (harness-eval)
 
 permissions:
   contents: read
+  pull-requests: write
 
 on:
   pull_request:
@@ -32,16 +33,20 @@ jobs:
         run: pip install -q harness-eval==6.1.1
 
       - name: Run lint
+        id: lint
         run: |
+          set +e
           harness-eval lint . \
             --preset recommended \
             --baseline .github/harness-eval-baseline.json \
             --format json \
             --output harness-eval-results.json \
             --fail-on-error
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 
-      - name: Generate summary
-        if: always()
+      - name: Build comment and summary
+        if: always() && steps.lint.outcome != 'skipped'
+        id: comment
         run: |
           python3 - <<'PYEOF'
           import json, os
@@ -57,8 +62,8 @@ jobs:
           lines = [
               f"## {icon} harness-eval lint: {status}",
               "",
-              f"**Setup:** {r['setup']} | **Detected:** {', '.join(r['detected_tools'])}",
-              f"**Components:** {r['component_count']} | **Rules:** {r['metadata']['rules_checked']} | **Duration:** {r['metadata']['duration_seconds']:.1f}s",
+              f"**Setup:** {r['setup']} | **Detected:** {', '.join(r['detected_tools'])} | "
+              f"**Version:** {r['metadata']['version']}",
               "",
               "### Scanned components",
               "",
@@ -83,24 +88,87 @@ jobs:
                   "",
                   "### Token budget",
                   "",
-                  f"- Always-loaded: **{budget.get('always_loaded', 0):,}** tokens ({int(budget.get('always_loaded_ratio', 0) * 100)}%)",
-                  f"- On-demand: **{budget.get('on_demand', 0):,}** tokens",
-                  f"- Total: **{budget.get('total_tokens', 0):,}** tokens",
+                  f"| Metric | Value |",
+                  f"|--------|-------|",
+                  f"| Always-loaded | {budget.get('always_loaded', 0):,} tokens ({int(budget.get('always_loaded_ratio', 0) * 100)}%) |",
+                  f"| On-demand | {budget.get('on_demand', 0):,} tokens |",
+                  f"| **Total** | **{budget.get('total_tokens', 0):,} tokens** |",
               ])
 
+          lines.extend([
+              "",
+              f"### Results",
+              "",
+              f"**Rules checked:** {r['metadata']['rules_checked']} | "
+              f"**Duration:** {r['metadata']['duration_seconds']:.1f}s | "
+              f"**Baseline:** 156 findings suppressed",
+              "",
+          ])
+
           if errors > 0 or warnings > 0:
-              lines.extend(["", "### Findings", ""])
+              lines.append("| Severity | Rule | File | Message |")
+              lines.append("|----------|------|------|---------|")
               for f in r["findings"]:
                   sev = f.get("severity", "info").upper()
                   rule = f.get("rule_id", "unknown")
                   msg = f.get("message", "")
                   file = f.get("file", "")
                   marker = "❌" if sev == "ERROR" else "⚠️"
-                  lines.append(f"- {marker} **[{sev}]** `{rule}` in `{file}`: {msg}")
+                  lines.append(f"| {marker} {sev} | `{rule}` | `{file}` | {msg} |")
           else:
-              lines.extend(["", "No new issues found (156 baselined findings suppressed)."])
+              lines.append("> **No new issues found.** All 156 baselined findings suppressed.")
 
-          summary = "\n".join(lines)
+          lines.extend([
+              "",
+              "---",
+              f"<sub>Evaluated with harness-eval v{r['metadata']['version']} | "
+              f"{r['component_count']} components | "
+              f"{r['metadata']['rules_checked']} rules</sub>",
+          ])
+
+          body = "\n".join(lines)
+
           with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as f:
-              f.write(summary)
+              f.write(body)
+
+          with open("comment-body.md", "w") as f:
+              f.write(body)
           PYEOF
+
+      - name: Post or update PR comment
+        if: always() && github.event_name == 'pull_request' && steps.comment.outcome == 'success'
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+        with:
+          script: |
+            const fs = require('fs');
+            const body = fs.readFileSync('comment-body.md', 'utf8');
+            const marker = '<!-- harness-eval-lint -->';
+            const fullBody = marker + '\n' + body;
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            const existing = comments.find(c => c.body.includes(marker));
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body: fullBody,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: fullBody,
+              });
+            }
+
+      - name: Fail if errors
+        if: always() && steps.lint.outputs.exit_code != '0'
+        run: exit 1
