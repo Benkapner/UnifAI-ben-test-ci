@@ -1,9 +1,9 @@
 ---
 name: architecture-review-techniques
 description: >-
-  Deep investigation techniques for architecture reviews — import chain tracing,
-  constructor audits, error propagation, cross-reference validation, test hygiene.
-  Load during pipeline reviews or detailed architectural analysis.
+  Deep investigation techniques for architecture reviews. Use when performing
+  import chain tracing, constructor audits, error propagation analysis,
+  cross-reference validation, or test hygiene checks during pipeline reviews.
 ---
 
 # Architecture Review Techniques
