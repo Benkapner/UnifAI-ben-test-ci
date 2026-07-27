@@ -1,0 +1,785 @@
+{
+  "version": "1.0",
+  "findings": [
+    {
+      "rule_id": "frontmatter/description-quality",
+      "file": ".cursor/skills/architecture/SKILL.md",
+      "message_hash": "95bde154c8fde2c9"
+    },
+    {
+      "rule_id": "frontmatter/format-valid",
+      "file": ".cursor/skills/architecture/SKILL.md",
+      "message_hash": "4d6e44dc1babc6fa"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/architecture/SKILL.md",
+      "message_hash": "c959f0aed103d896"
+    },
+    {
+      "rule_id": "content/orphan-skills",
+      "file": ".cursor/skills/codebase/domains/backend/SKILL.md",
+      "message_hash": "c7a398232d8d5634"
+    },
+    {
+      "rule_id": "content/orphan-skills",
+      "file": ".cursor/skills/codebase/domains/celery/SKILL.md",
+      "message_hash": "b467dce199fefb6c"
+    },
+    {
+      "rule_id": "content/orphan-skills",
+      "file": ".cursor/skills/codebase/domains/global-utils/SKILL.md",
+      "message_hash": "26c3f9cca50e256d"
+    },
+    {
+      "rule_id": "content/orphan-skills",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "cc1191b31a0b7dc9"
+    },
+    {
+      "rule_id": "content/orphan-skills",
+      "file": ".cursor/skills/codebase/domains/temporal-worker/SKILL.md",
+      "message_hash": "bbc8235f11a78ccc"
+    },
+    {
+      "rule_id": "content/orphan-skills",
+      "file": ".cursor/skills/codebase/domains/ui/SKILL.md",
+      "message_hash": "a1fbedb214d3a9f3"
+    },
+    {
+      "rule_id": "frontmatter/description-quality",
+      "file": ".cursor/skills/codebase/SKILL.md",
+      "message_hash": "95bde154c8fde2c9"
+    },
+    {
+      "rule_id": "frontmatter/format-valid",
+      "file": ".cursor/skills/codebase/SKILL.md",
+      "message_hash": "f34550aa888a5ea7"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/SKILL.md",
+      "message_hash": "e0712dc1381591f0"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/SKILL.md",
+      "message_hash": "08401288302b6e13"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/SKILL.md",
+      "message_hash": "ab3949b27639dcdd"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/SKILL.md",
+      "message_hash": "e2753a7b33d1e811"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/SKILL.md",
+      "message_hash": "738cb8f52616ca8d"
+    },
+    {
+      "rule_id": "frontmatter/format-valid",
+      "file": ".cursor/skills/codebase/domains/backend/SKILL.md",
+      "message_hash": "d1780a5eaf1ef0b7"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/backend/SKILL.md",
+      "message_hash": "dc3ba92863d7f3e2"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/backend/SKILL.md",
+      "message_hash": "f55231ff146342e1"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/backend/SKILL.md",
+      "message_hash": "c5cd2d5dc6d7b751"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/backend/SKILL.md",
+      "message_hash": "b228abc5a69b0127"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/backend/SKILL.md",
+      "message_hash": "8a0d088d09da3043"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/backend/SKILL.md",
+      "message_hash": "6e927398d53f7a9b"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/backend/SKILL.md",
+      "message_hash": "298908f9d62cba43"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/backend/SKILL.md",
+      "message_hash": "53b593e1963899fe"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/backend/SKILL.md",
+      "message_hash": "3e1cd84a67f76346"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/backend/SKILL.md",
+      "message_hash": "13445be3b278bb64"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/backend/SKILL.md",
+      "message_hash": "4a06100893ef301f"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/backend/SKILL.md",
+      "message_hash": "e446c491ccf5e0ff"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/backend/SKILL.md",
+      "message_hash": "beb82471e9999dc2"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/backend/SKILL.md",
+      "message_hash": "db1884df3fc2c21d"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/backend/SKILL.md",
+      "message_hash": "9975e1e8e792f9e3"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/backend/SKILL.md",
+      "message_hash": "e337e226e24b0cee"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/backend/SKILL.md",
+      "message_hash": "82287d2e0ca2648f"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/backend/SKILL.md",
+      "message_hash": "e2753a7b33d1e811"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/backend/SKILL.md",
+      "message_hash": "8af1f2137ca44102"
+    },
+    {
+      "rule_id": "frontmatter/description-quality",
+      "file": ".cursor/skills/codebase/domains/celery/SKILL.md",
+      "message_hash": "95bde154c8fde2c9"
+    },
+    {
+      "rule_id": "frontmatter/format-valid",
+      "file": ".cursor/skills/codebase/domains/celery/SKILL.md",
+      "message_hash": "85c5cc09fd787eff"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/celery/SKILL.md",
+      "message_hash": "e07196c0e56e439d"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/celery/SKILL.md",
+      "message_hash": "799393c52d702844"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/celery/SKILL.md",
+      "message_hash": "d0ba4f875457a02e"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/celery/SKILL.md",
+      "message_hash": "46fa1b73a58dcba8"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/celery/SKILL.md",
+      "message_hash": "60a63fd6c7c5bcb3"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/celery/SKILL.md",
+      "message_hash": "479e34f6248e030a"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/celery/SKILL.md",
+      "message_hash": "a7a9c9572fe93089"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/celery/SKILL.md",
+      "message_hash": "53a10323c2d12f8e"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/celery/SKILL.md",
+      "message_hash": "8af1f2137ca44102"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/celery/SKILL.md",
+      "message_hash": "57d785a1f30eddca"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/celery/SKILL.md",
+      "message_hash": "0e36dd202421b3ea"
+    },
+    {
+      "rule_id": "quality/negative-only",
+      "file": ".cursor/skills/codebase/domains/celery/SKILL.md",
+      "message_hash": "5de398ce7374ff1e"
+    },
+    {
+      "rule_id": "frontmatter/format-valid",
+      "file": ".cursor/skills/codebase/domains/global-utils/SKILL.md",
+      "message_hash": "1399de40707f7e12"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/global-utils/SKILL.md",
+      "message_hash": "51a7877d3c9a23de"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/global-utils/SKILL.md",
+      "message_hash": "9e5a66ae7523ee30"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/global-utils/SKILL.md",
+      "message_hash": "a5c131054f939f59"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/global-utils/SKILL.md",
+      "message_hash": "9b2f79e3613be6b2"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/global-utils/SKILL.md",
+      "message_hash": "8c208e85e8a90b59"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/global-utils/SKILL.md",
+      "message_hash": "5d12b5ac73a52c82"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/global-utils/SKILL.md",
+      "message_hash": "01d2b215df470c1c"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/global-utils/SKILL.md",
+      "message_hash": "14301d3712755f78"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/global-utils/SKILL.md",
+      "message_hash": "62ceacdd06ea5dcb"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/global-utils/SKILL.md",
+      "message_hash": "8660f22211f3df4c"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/global-utils/SKILL.md",
+      "message_hash": "b22f97710f21a8ac"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/global-utils/SKILL.md",
+      "message_hash": "969996e689698d48"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/global-utils/SKILL.md",
+      "message_hash": "8c7f374a31ae0d24"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/global-utils/SKILL.md",
+      "message_hash": "e2753a7b33d1e811"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/global-utils/SKILL.md",
+      "message_hash": "8af1f2137ca44102"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/global-utils/SKILL.md",
+      "message_hash": "0e36dd202421b3ea"
+    },
+    {
+      "rule_id": "quality/scope-overreach",
+      "file": ".cursor/skills/codebase/domains/global-utils/SKILL.md",
+      "message_hash": "4352f255562b48b7"
+    },
+    {
+      "rule_id": "frontmatter/format-valid",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "e224264f0ff6e8c8"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "b2d5db2fdb302020"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "013d7f1fab88f34b"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "ef8aebbd7c91ae43"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "a84b154cccc24a24"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "a917bc60778b143f"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "dd7136b0267e9371"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "8d8a7044bd670992"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "2129a4f0a16720dc"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "93b2a7de671dd2ad"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "7784b96012a6d788"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "6477cc7ab4c3cd32"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "aaf79cd7ba71d677"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "0a6cd8a51adce087"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "1e8796e3767f0bb8"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "605ca325872fcbab"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "9bb55878e8901a23"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "77db3fa8038087bd"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "158efc5a4e7e9e7f"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "f2131908a215c800"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "3737f63cc89a39dd"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "8f78932ea1bbc7b4"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "6e927398d53f7a9b"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "58237b101eb5be4c"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "e2753a7b33d1e811"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "8af1f2137ca44102"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "d5692269a686af94"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "c117dae7f042714e"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "f826864ab8a99628"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/identity/SKILL.md",
+      "message_hash": "d664026f56cda0b2"
+    },
+    {
+      "rule_id": "frontmatter/format-valid",
+      "file": ".cursor/skills/codebase/domains/multi-agent/SKILL.md",
+      "message_hash": "e551a16fda952e49"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/multi-agent/SKILL.md",
+      "message_hash": "beba0372e9f9e6de"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/multi-agent/SKILL.md",
+      "message_hash": "bd3f2035c2e90a26"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/multi-agent/SKILL.md",
+      "message_hash": "9b23e01fe7b0cc20"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/multi-agent/SKILL.md",
+      "message_hash": "b3f11c0ef064364d"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/multi-agent/SKILL.md",
+      "message_hash": "83a93a2da34681b3"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/multi-agent/SKILL.md",
+      "message_hash": "f768c6955ceb5d96"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/multi-agent/SKILL.md",
+      "message_hash": "04ef322625ff8fea"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/multi-agent/SKILL.md",
+      "message_hash": "b12890889fdab00d"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/multi-agent/SKILL.md",
+      "message_hash": "45d5d56c6371e302"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/multi-agent/SKILL.md",
+      "message_hash": "71fd2e3856391346"
+    },
+    {
+      "rule_id": "quality/unfinished-content",
+      "file": ".cursor/skills/codebase/domains/multi-agent/SKILL.md",
+      "message_hash": "61ce3b0b7f46f28c"
+    },
+    {
+      "rule_id": "quality/negative-only",
+      "file": ".cursor/skills/codebase/domains/multi-agent/SKILL.md",
+      "message_hash": "bc2b2333849dab81"
+    },
+    {
+      "rule_id": "frontmatter/format-valid",
+      "file": ".cursor/skills/codebase/domains/rag/SKILL.md",
+      "message_hash": "ea578b45c25bcf4e"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/rag/SKILL.md",
+      "message_hash": "d664026f56cda0b2"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/rag/SKILL.md",
+      "message_hash": "4f87801ddb08ea93"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/rag/SKILL.md",
+      "message_hash": "5bae36f6f59e87af"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/rag/SKILL.md",
+      "message_hash": "cb34c7db0fb34870"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/rag/SKILL.md",
+      "message_hash": "57d785a1f30eddca"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/rag/SKILL.md",
+      "message_hash": "c5f3f79195cc9846"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/rag/SKILL.md",
+      "message_hash": "8cafb98f846eed11"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/rag/SKILL.md",
+      "message_hash": "9aa2ca01fec42855"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/rag/SKILL.md",
+      "message_hash": "a2d36e742ba192b4"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/rag/SKILL.md",
+      "message_hash": "846a45158e1947b5"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/rag/SKILL.md",
+      "message_hash": "53a10323c2d12f8e"
+    },
+    {
+      "rule_id": "quality/unfinished-content",
+      "file": ".cursor/skills/codebase/domains/rag/SKILL.md",
+      "message_hash": "31f2069097d429e8"
+    },
+    {
+      "rule_id": "frontmatter/description-quality",
+      "file": ".cursor/skills/codebase/domains/temporal-worker/SKILL.md",
+      "message_hash": "95bde154c8fde2c9"
+    },
+    {
+      "rule_id": "frontmatter/format-valid",
+      "file": ".cursor/skills/codebase/domains/temporal-worker/SKILL.md",
+      "message_hash": "607e01d95b57f6f3"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/temporal-worker/SKILL.md",
+      "message_hash": "124524e754c93444"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/temporal-worker/SKILL.md",
+      "message_hash": "58fc2a4a9f8c1296"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/temporal-worker/SKILL.md",
+      "message_hash": "f8e5be0867901a58"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/temporal-worker/SKILL.md",
+      "message_hash": "e1cddd717ad25574"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/temporal-worker/SKILL.md",
+      "message_hash": "e727d7d94eb310c1"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/temporal-worker/SKILL.md",
+      "message_hash": "bb29071b0dac7825"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/temporal-worker/SKILL.md",
+      "message_hash": "eb2e31017fc0d4fd"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/temporal-worker/SKILL.md",
+      "message_hash": "24ff92c2e81d6880"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/temporal-worker/SKILL.md",
+      "message_hash": "9675a3145419752d"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/temporal-worker/SKILL.md",
+      "message_hash": "71fd2e3856391346"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/temporal-worker/SKILL.md",
+      "message_hash": "8af1f2137ca44102"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/temporal-worker/SKILL.md",
+      "message_hash": "8fba65eaadde2387"
+    },
+    {
+      "rule_id": "frontmatter/format-valid",
+      "file": ".cursor/skills/codebase/domains/ui/SKILL.md",
+      "message_hash": "7cee2e157049d743"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/ui/SKILL.md",
+      "message_hash": "97a06ce1feacc9cd"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/ui/SKILL.md",
+      "message_hash": "19fb4d4ae8606591"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/ui/SKILL.md",
+      "message_hash": "667d71ce7df6165f"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/ui/SKILL.md",
+      "message_hash": "883a9595efbb1a07"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/ui/SKILL.md",
+      "message_hash": "fbc5b67790fea03a"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/ui/SKILL.md",
+      "message_hash": "e2753a7b33d1e811"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/ui/SKILL.md",
+      "message_hash": "cd268a42aaeab719"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/ui/SKILL.md",
+      "message_hash": "6677c9675949f9a8"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/ui/SKILL.md",
+      "message_hash": "f640c4c40eef7a95"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/ui/SKILL.md",
+      "message_hash": "38a1d082a8d27297"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/ui/SKILL.md",
+      "message_hash": "8624b8ecc4938a0c"
+    },
+    {
+      "rule_id": "content/broken-references",
+      "file": ".cursor/skills/codebase/domains/ui/SKILL.md",
+      "message_hash": "87c5b1e54341a099"
+    },
+    {
+      "rule_id": "command/references-nonexistent-skill",
+      "file": ".cursor/commands/README.md",
+      "message_hash": "97ee435bcba70c7d"
+    },
+    {
+      "rule_id": "command/references-nonexistent-skill",
+      "file": ".cursor/commands/README.md",
+      "message_hash": "744746aabc8b35de"
+    },
+    {
+      "rule_id": "command/references-nonexistent-skill",
+      "file": ".cursor/commands/README.md",
+      "message_hash": "c83b82dac60a6d9d"
+    },
+    {
+      "rule_id": "command/references-nonexistent-skill",
+      "file": ".cursor/commands/pipeline.md",
+      "message_hash": "55dc8e6918c7e1f2"
+    },
+    {
+      "rule_id": "command/references-nonexistent-skill",
+      "file": ".cursor/commands/pipeline.md",
+      "message_hash": "744746aabc8b35de"
+    }
+  ]
+}
