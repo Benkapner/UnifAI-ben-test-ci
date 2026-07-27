@@ -30,7 +30,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install harness-eval
-        run: pip install -q harness-eval==6.1.1
+        run: pip install -q harness-eval==6.2.0
 
       - name: Run lint
         id: lint
