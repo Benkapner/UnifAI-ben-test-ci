@@ -80,19 +80,28 @@ jobs:
                   names = [i.get("name", "?") for i in items]
                   lines.append(f"| {comp_type.title()}s | {len(items)} | {', '.join(names)} |")
 
+          baseline_count = 0
+          try:
+              with open(".github/harness-eval-baseline.json") as bf:
+                  baseline_count = len(json.load(bf).get("findings", []))
+          except Exception:
+              pass
+
           lines.extend([
               "",
               "### Results",
               "",
               f"**Rules checked:** {r['metadata']['rules_checked']} | "
               f"**Duration:** {r['metadata']['duration_seconds']:.1f}s | "
-              f"**Baseline:** 156 findings suppressed",
+              f"**Baseline:** {baseline_count} findings suppressed",
               "",
           ])
 
           all_findings = []
-          for comp_type in ["skill", "command", "hooks", "agent"]:
-              items = insp.get(comp_type, [])
+          for comp_type in insp:
+              if comp_type == "summary":
+                  continue
+              items = insp[comp_type]
               if not isinstance(items, list):
                   continue
               for item in items:
@@ -112,7 +121,7 @@ jobs:
                   marker = "❌" if sev == "ERROR" else "⚠️"
                   lines.append(f"| {marker} {sev} | `{f['component']}` | `{f['rule']}` | {f['message']} |")
           else:
-              lines.append("> **No new issues found.** All 156 baselined findings suppressed.")
+              lines.append(f"> **No new issues found.** All {baseline_count} baselined findings suppressed.")
 
           system_findings = r.get("findings", [])
           if system_findings:
