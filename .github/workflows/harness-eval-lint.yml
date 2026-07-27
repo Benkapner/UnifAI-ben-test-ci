@@ -36,4 +36,71 @@ jobs:
           harness-eval lint . \
             --preset recommended \
             --baseline .github/harness-eval-baseline.json \
+            --format json \
+            --output harness-eval-results.json \
             --fail-on-error
+
+      - name: Generate summary
+        if: always()
+        run: |
+          python3 - <<'PYEOF'
+          import json, os
+
+          with open("harness-eval-results.json") as f:
+              r = json.load(f)
+
+          errors = sum(1 for f in r["findings"] if f.get("severity") == "error")
+          warnings = sum(1 for f in r["findings"] if f.get("severity") == "warning")
+          status = "PASS" if errors == 0 else "FAIL"
+          icon = "✅" if errors == 0 else "❌"
+
+          lines = [
+              f"## {icon} harness-eval lint: {status}",
+              "",
+              f"**Setup:** {r['setup']} | **Detected:** {', '.join(r['detected_tools'])}",
+              f"**Components:** {r['component_count']} | **Rules:** {r['metadata']['rules_checked']} | **Duration:** {r['metadata']['duration_seconds']:.1f}s",
+              "",
+              "### Scanned components",
+              "",
+              "| Type | Count | Details |",
+              "|------|-------|---------|",
+          ]
+
+          insp = r.get("inspection", {})
+          for comp_type in ["skill", "command", "hooks", "agent"]:
+              items = insp.get(comp_type)
+              if not items:
+                  continue
+              if isinstance(items, list):
+                  names = [i.get("name", "?") for i in items]
+                  lines.append(f"| {comp_type.title()}s | {len(items)} | {', '.join(names)} |")
+              elif isinstance(items, dict):
+                  lines.append(f"| {comp_type.title()}s | 1 | checked |")
+
+          budget = r.get("budget", {})
+          if budget:
+              lines.extend([
+                  "",
+                  "### Token budget",
+                  "",
+                  f"- Always-loaded: **{budget.get('always_loaded', 0):,}** tokens ({int(budget.get('always_loaded_ratio', 0) * 100)}%)",
+                  f"- On-demand: **{budget.get('on_demand', 0):,}** tokens",
+                  f"- Total: **{budget.get('total_tokens', 0):,}** tokens",
+              ])
+
+          if errors > 0 or warnings > 0:
+              lines.extend(["", "### Findings", ""])
+              for f in r["findings"]:
+                  sev = f.get("severity", "info").upper()
+                  rule = f.get("rule_id", "unknown")
+                  msg = f.get("message", "")
+                  file = f.get("file", "")
+                  marker = "❌" if sev == "ERROR" else "⚠️"
+                  lines.append(f"- {marker} **[{sev}]** `{rule}` in `{file}`: {msg}")
+          else:
+              lines.extend(["", "No new issues found (156 baselined findings suppressed)."])
+
+          summary = "\n".join(lines)
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as f:
+              f.write(summary)
+          PYEOF
