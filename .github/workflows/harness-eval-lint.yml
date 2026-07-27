@@ -80,19 +80,6 @@ jobs:
                   names = [i.get("name", "?") for i in items]
                   lines.append(f"| {comp_type.title()}s | {len(items)} | {', '.join(names)} |")
 
-          budget = r.get("budget", {})
-          if budget:
-              lines.extend([
-                  "",
-                  "### Token budget",
-                  "",
-                  "| Metric | Value |",
-                  "|--------|-------|",
-                  f"| Always-loaded | {budget.get('always_loaded', 0):,} tokens ({int(budget.get('always_loaded_ratio', 0) * 100)}%) |",
-                  f"| On-demand | {budget.get('on_demand', 0):,} tokens |",
-                  f"| **Total** | **{budget.get('total_tokens', 0):,} tokens** |",
-              ])
-
           lines.extend([
               "",
               "### Results",
