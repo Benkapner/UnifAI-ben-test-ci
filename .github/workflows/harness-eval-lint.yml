@@ -46,7 +46,6 @@ jobs:
 
       - name: Build comment and summary
         if: always() && steps.lint.outcome != 'skipped'
-        id: comment
         run: |
           python3 - <<'PYEOF'
           import json, os
@@ -54,24 +53,25 @@ jobs:
           with open("harness-eval-results.json") as f:
               r = json.load(f)
 
-          errors = sum(1 for f in r["findings"] if f.get("severity") == "error")
-          warnings = sum(1 for f in r["findings"] if f.get("severity") == "warning")
-          status = "PASS" if errors == 0 else "FAIL"
-          icon = "✅" if errors == 0 else "❌"
+          insp = r.get("inspection", {})
+          summary = insp.get("summary", {})
+          total_errors = summary.get("errors", 0)
+          total_warnings = summary.get("warnings", 0)
+          status = "PASS" if total_errors == 0 else "FAIL"
+          icon = "✅" if total_errors == 0 else "❌"
 
           lines = [
               f"## {icon} harness-eval lint: {status}",
               "",
-              f"**Setup:** {r['setup']} | **Detected:** {', '.join(r['detected_tools'])} | "
+              f"**Setup:** {r.get('setup', '?')} | **Detected:** {', '.join(r.get('detected_tools', []))} | "
               f"**Version:** {r['metadata']['version']}",
               "",
               "### Scanned components",
               "",
-              "| Type | Count | Details |",
-              "|------|-------|---------|",
+              "| Type | Count | Components |",
+              "|------|-------|------------|",
           ]
 
-          insp = r.get("inspection", {})
           for comp_type in ["skill", "command", "hooks", "agent"]:
               items = insp.get(comp_type)
               if not items:
@@ -79,8 +79,6 @@ jobs:
               if isinstance(items, list):
                   names = [i.get("name", "?") for i in items]
                   lines.append(f"| {comp_type.title()}s | {len(items)} | {', '.join(names)} |")
-              elif isinstance(items, dict):
-                  lines.append(f"| {comp_type.title()}s | 1 | checked |")
 
           budget = r.get("budget", {})
           if budget:
@@ -88,8 +86,8 @@ jobs:
                   "",
                   "### Token budget",
                   "",
-                  f"| Metric | Value |",
-                  f"|--------|-------|",
+                  "| Metric | Value |",
+                  "|--------|-------|",
                   f"| Always-loaded | {budget.get('always_loaded', 0):,} tokens ({int(budget.get('always_loaded_ratio', 0) * 100)}%) |",
                   f"| On-demand | {budget.get('on_demand', 0):,} tokens |",
                   f"| **Total** | **{budget.get('total_tokens', 0):,} tokens** |",
@@ -97,7 +95,7 @@ jobs:
 
           lines.extend([
               "",
-              f"### Results",
+              "### Results",
               "",
               f"**Rules checked:** {r['metadata']['rules_checked']} | "
               f"**Duration:** {r['metadata']['duration_seconds']:.1f}s | "
@@ -105,24 +103,42 @@ jobs:
               "",
           ])
 
-          if errors > 0 or warnings > 0:
-              lines.append("| Severity | Rule | File | Message |")
-              lines.append("|----------|------|------|---------|")
-              for f in r["findings"]:
-                  sev = f.get("severity", "info").upper()
-                  rule = f.get("rule_id", "unknown")
-                  msg = f.get("message", "")
-                  file = f.get("file", "")
+          all_findings = []
+          for comp_type in ["skill", "command", "hooks", "agent"]:
+              items = insp.get(comp_type, [])
+              if not isinstance(items, list):
+                  continue
+              for item in items:
+                  for f in item.get("findings", []):
+                      all_findings.append({
+                          "component": item.get("name", "?"),
+                          "rule": f.get("rule", "unknown"),
+                          "severity": f.get("severity", "info"),
+                          "message": f.get("message", ""),
+                      })
+
+          if all_findings:
+              lines.append("| Severity | Component | Rule | Message |")
+              lines.append("|----------|-----------|------|---------|")
+              for f in all_findings:
+                  sev = f["severity"].upper()
                   marker = "❌" if sev == "ERROR" else "⚠️"
-                  lines.append(f"| {marker} {sev} | `{rule}` | `{file}` | {msg} |")
+                  lines.append(f"| {marker} {sev} | `{f['component']}` | `{f['rule']}` | {f['message']} |")
           else:
               lines.append("> **No new issues found.** All 156 baselined findings suppressed.")
+
+          system_findings = r.get("findings", [])
+          if system_findings:
+              lines.extend(["", "<details><summary>System-level notes</summary>", ""])
+              for sf in system_findings:
+                  lines.append(f"- {sf}")
+              lines.extend(["", "</details>"])
 
           lines.extend([
               "",
               "---",
-              f"<sub>Evaluated with harness-eval v{r['metadata']['version']} | "
-              f"{r['component_count']} components | "
+              f"<sub>harness-eval v{r['metadata']['version']} | "
+              f"{r.get('component_count', '?')} components | "
               f"{r['metadata']['rules_checked']} rules</sub>",
           ])
 
@@ -136,7 +152,7 @@ jobs:
           PYEOF
 
       - name: Post or update PR comment
-        if: always() && github.event_name == 'pull_request' && steps.comment.outcome == 'success'
+        if: always() && github.event_name == 'pull_request' && steps.lint.outcome != 'skipped'
         uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
         with:
           script: |
